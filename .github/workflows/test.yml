@@ -68,6 +68,16 @@ jobs:
           echo "project_slug=$PROJECT_SLUG" >> $GITHUB_OUTPUT
           echo "GENERATED_DIR=./generated_project_temp/$PROJECT_SLUG" >> $GITHUB_OUTPUT
           echo "::debug:: $GITHUB_OUTPUT"
+          
+      - name: Install tree command
+        run: sudo apt-get update && sudo apt-get install -y tree
+        
+      - name: Display Generated Project Structure
+        run: |
+          GENERATED_PROJECT_PATH="${{ steps.generate_project.outputs.GENERATED_DIR }}"
+          echo "::group::Generated Project Structure for $GENERATED_PROJECT_PATH"
+          tree -L 3 -a -F --dirsfirst "$GENERATED_PROJECT_PATH"
+          echo "::endgroup::"
 #
 #      - name: Navigate to Generated Project Directory
 #        run: |
