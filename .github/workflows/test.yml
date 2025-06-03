@@ -30,7 +30,7 @@ jobs:
     steps:
       - name: Checkout Workflow Repository
         uses: actions/checkout@v4
-        with:
+#        with:
           # This checks out the repo where the workflow file lives.
           # It's needed to access the workflow file itself and any other local files.
           # We'll use a different token for pushing the new repo later.
