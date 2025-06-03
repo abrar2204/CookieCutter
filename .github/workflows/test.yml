@@ -60,7 +60,7 @@ jobs:
             --overwrite-if-exists
           
           echo "project_slug=$PROJECT_SLUG" >> $GITHUB_OUTPUT
-          echo "GENERATED_DIR=.~/generated_project_temp/$PROJECT_SLUG" >> $GITHUB_OUTPUT
+          echo "GENERATED_DIR=~/generated_project_temp/$PROJECT_SLUG" >> $GITHUB_OUTPUT
           
       - name: Install tree command
         run: sudo apt-get update && sudo apt-get install -y tree
