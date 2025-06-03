@@ -1,13 +1,13 @@
 using System.ComponentModel.DataAnnotations;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using {{ cookiecutter.project_name }}.Api.Attribute;
 using {{ cookiecutter.project_name }}.Application.Features.{{ cookiecutter.project_name }}.Commands.Create{{ cookiecutter.project_name }};
 using {{ cookiecutter.project_name }}.Application.Features.{{ cookiecutter.project_name }}.Queries.Get{{ cookiecutter.project_name }}ById;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
 
 namespace {{ cookiecutter.project_name }}.Api.Controllers;
 
-[Authorize]
 [Route("api/[controller]")]
 public class {{ cookiecutter.project_name }}Controller : ApiControllerBase
 {
