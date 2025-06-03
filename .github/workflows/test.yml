@@ -48,28 +48,26 @@ jobs:
         # Create a temporary YAML file to pass inputs to Cookiecutter.
         run: |
           echo "default_context:" > cookiecutter_inputs.yml
-          echo "  project_name: \"${{ inputs.project_name }}\"" >> cookiecutter_inputs.yml
+          echo "project_name: \"${{ inputs.project_name }}\"" >> cookiecutter_inputs.yml
           
-          cat cookiecutter_inputs.yml       
-# Add other inputs from workflow_dispatch here:
-# echo "  <cookiecutter_variable_name>: \"${{ inputs.<workflow_input_name> }}\"" >> cookiecutter_inputs.yml
+          cat cookiecutter_inputs.yml
 
       - name: Generate Project with Cookiecutter
         id: generate_project # Give this step an ID to reference its outputs if needed
         # Cookiecutter generates a folder named after project_slug.
         # We need to know this name for subsequent steps.
         run: |
-# Calculate project_slug as Cookiecutter would
+          # Calculate project_slug as Cookiecutter would
           PROJECT_SLUG="${{ inputs.project_name }}"
           
-# Run Cookiecutter, outputting into a sub-directory named by the slug
+          # Run Cookiecutter, outputting into a sub-directory named by the slug
           cookiecutter "https://github.com/abrar2204/CookieCutter" \
             --no-input \
             --config-file cookiecutter_inputs.yml \
             --output-dir "./generated_project_temp" \
             --overwrite-if-exists
           
-# Output the generated project's root folder name for later steps
+          # Output the generated project's root folder name for later steps
           echo "project_slug=$PROJECT_SLUG" >> $GITHUB_OUTPUT
           echo "GENERATED_DIR=./generated_project_temp/$PROJECT_SLUG" >> $GITHUB_OUTPUT
           echo $GITHUB_OUTPUT
