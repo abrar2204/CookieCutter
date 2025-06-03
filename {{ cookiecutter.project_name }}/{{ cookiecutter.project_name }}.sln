@@ -1,0 +1,26 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "{{ cookiecutter.project_name }}.Api", "{{ cookiecutter.project_name }}.Api\{{ cookiecutter.project_name }}.Api.csproj", "{57E363A9-10E7-4342-B5AD-B41400214CF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "{{ cookiecutter.project_name }}.Application", "{{ cookiecutter.project_name }}.Application\{{ cookiecutter.project_name }}.Application.csproj", "{C2684B5C-4F0C-478A-8145-3C90754626E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57E363A9-10E7-4342-B5AD-B41400214CF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57E363A9-10E7-4342-B5AD-B41400214CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57E363A9-10E7-4342-B5AD-B41400214CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57E363A9-10E7-4342-B5AD-B41400214CF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D387CEA1-F578-46C8-ACA3-95131F1461D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D387CEA1-F578-46C8-ACA3-95131F1461D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D387CEA1-F578-46C8-ACA3-95131F1461D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D387CEA1-F578-46C8-ACA3-95131F1461D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2684B5C-4F0C-478A-8145-3C90754626E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2684B5C-4F0C-478A-8145-3C90754626E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2684B5C-4F0C-478A-8145-3C90754626E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2684B5C-4F0C-478A-8145-3C90754626E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

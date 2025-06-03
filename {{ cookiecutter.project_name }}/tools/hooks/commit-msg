@@ -1,0 +1,39 @@
+#!/bin/sh
+#!/usr/bin/env bash
+
+INPUT_FILE=$1
+START_LINE=`head -n1 $INPUT_FILE`
+REGEX="^(<[[:alpha:]]{2,4}-)([[:digit:]]+)(> \| )(( )*([ A-Za-z0-9_@./#&+-]*))*( \| <)([[:alnum:]]+)(\/*)([[:alnum:]]*)(>)( \| (<skip-prod>|<skip-ci-cd>))?$|Merge remote-tracking branch*|Merge branch*"
+if ! [[ $START_LINE =~ $REGEX ]];
+then
+    echo -e "Cannot commit due to incorrect message format: $START_LINE"
+    echo -e "Format should be : <[ABBREVIATION]-[STORY_NUMBER]> | [COMMIT MESSAGE] | <[PAIR1]/[PAIR2]>"
+    echo -e "e.g. <VO-999> | fixed build | <George>"
+    exit 1
+fi
+
+gs=$(git status)
+
+if [[ $gs == *"Changes not staged for commit"* ]] ; then
+    echo -e ""
+    echo -e "Cannot commit due to unstaged changes"
+    exit 1
+fi
+
+dotnet clean; dotnet build 
+rc=$?
+
+if [[ $rc != 0 ]] ; then
+    echo -e ""
+    echo -e "Cannot commit due to build failure"
+    exit $rc
+fi
+
+dotnet test
+rc=$?
+
+if [[ $rc != 0 ]] ; then
+    echo -e ""
+    echo -e "Cannot commit due to test failure"
+    exit $rc
+fi
