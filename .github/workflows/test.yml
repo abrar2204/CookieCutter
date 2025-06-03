@@ -111,7 +111,6 @@ jobs:
 
           git push -u origin main
         env:
-          GIT_ASKPASS: "echo ${{ secrets.GH_PAT_FOR_NEW_REPOS }}"
           GITHUB_TOKEN: ${{ secrets.GH_PAT_FOR_NEW_REPOS }} 
 
       - name: Clean Up Generated Temp Directory (Optional)
