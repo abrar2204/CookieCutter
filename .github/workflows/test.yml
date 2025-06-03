@@ -57,17 +57,14 @@ jobs:
         # Cookiecutter generates a folder named after project_slug.
         # We need to know this name for subsequent steps.
         run: |
-          # Calculate project_slug as Cookiecutter would
           PROJECT_SLUG="${{ inputs.project_name }}"
           
-          # Run Cookiecutter, outputting into a sub-directory named by the slug
           cookiecutter "https://github.com/abrar2204/CookieCutter" \
             --no-input \
             --config-file cookiecutter_inputs.yml \
             --output-dir "./generated_project_temp" \
             --overwrite-if-exists
           
-          # Output the generated project's root folder name for later steps
           echo "project_slug=$PROJECT_SLUG" >> $GITHUB_OUTPUT
           echo "GENERATED_DIR=./generated_project_temp/$PROJECT_SLUG" >> $GITHUB_OUTPUT
           echo "::debug:: $GITHUB_OUTPUT"
