@@ -98,6 +98,8 @@ jobs:
 
       - name: Add Remote and Push to New Repository
         run: |
+          git config --unset-all http.https://github.com/.extraheader
+          
           git remote add origin ${{ env.REPO_URL }}.git
           
           git push -u origin main
