@@ -80,6 +80,7 @@ jobs:
       - name: Initialize Git in the Generated Project
         run: |
           git init
+          git branch -m main
           git add .
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
