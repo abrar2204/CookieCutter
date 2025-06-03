@@ -47,7 +47,7 @@ jobs:
       - name: Define Cookiecutter Inputs
         # Create a temporary YAML file to pass inputs to Cookiecutter.
         run: |
-          echo "default_context:" > cookiecutter_inputs.yml
+          echo "default_context:" >> cookiecutter_inputs.yml
           echo "  project_name: \"${{ inputs.project_name }}\"" >> cookiecutter_inputs.yml
           # Add other inputs from workflow_dispatch here:
           # echo "  <cookiecutter_variable_name>: \"${{ inputs.<workflow_input_name> }}\"" >> cookiecutter_inputs.yml
