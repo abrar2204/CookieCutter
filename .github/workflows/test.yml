@@ -51,15 +51,16 @@ jobs:
         # Cookiecutter generates a folder named after project_slug.
         # We need to know this name for subsequent steps.
         run: |
+          cd ~
           PROJECT_SLUG="${{ inputs.project_name }}"
           
           cookiecutter "https://github.com/abrar2204/CookieCutter" \
             --no-input \
             --config-file cookiecutter_inputs.yml \
-            --output-dir "~/generated_project_temp" \
+            --output-dir "./generated_project_temp" \
             --overwrite-if-exists
           
-          cd ~
+          
           echo "project_slug=$PROJECT_SLUG" >> $GITHUB_OUTPUT
           echo "GENERATED_DIR=./generated_project_temp/$PROJECT_SLUG" >> $GITHUB_OUTPUT
           
@@ -114,4 +115,4 @@ jobs:
       - name: Clean Up Generated Temp Directory (Optional)
         run: |
           cd "${{ github.workspace }}"
-          rm -rf ~/generated_project_temp
+          rm -rf ./generated_project_temp
