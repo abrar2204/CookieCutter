@@ -74,9 +74,9 @@ jobs:
           echo "Creating new GitHub repository: $REPO_NAME with visibility ${{ inputs.new_repo_visibility }}"
           
           if [[ "${{ inputs.new_repo_visibility }}" == "public" ]]; then
-            gh repo create "$REPO_NAME" --public --description "Generated .NET project: ${{ inputs.project_name }}" || true
+            gh repo create "$REPO_NAME" --public || true
           else
-            gh repo create "$REPO_NAME" --private --description "Generated .NET project: ${{ inputs.project_name }}" || true
+            gh repo create "$REPO_NAME" --private || true
           fi
           
           REPO_URL="https://github.com/${{ github.repository_owner }}/$REPO_NAME"
