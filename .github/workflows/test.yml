@@ -70,7 +70,7 @@ jobs:
           # Output the generated project's root folder name for later steps
           echo "project_slug=$PROJECT_SLUG" >> $GITHUB_OUTPUT
           echo "GENERATED_DIR=./generated_project_temp/$PROJECT_SLUG" >> $GITHUB_OUTPUT
-          echo "${{ GITHUB_OUTPUT }}"
+          echo "${{ $GITHUB_OUTPUT }}"
 #
 #      - name: Navigate to Generated Project Directory
 #        run: |
