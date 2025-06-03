@@ -92,7 +92,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install gh -y
 
-          REPO_NAME="${{ inputs.project_name | lower | replace(' ', '-') }}"
+          REPO_NAME="${{ inputs.project_name }}"
           echo "Creating new GitHub repository: $REPO_NAME with visibility ${{ inputs.new_repo_visibility }}"
 
           if [[ "${{ inputs.new_repo_visibility }}" == "public" ]]; then
