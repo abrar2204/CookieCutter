@@ -97,7 +97,9 @@ jobs:
           echo "REPO_URL=$REPO_URL" >> $GITHUB_ENV
 
       - name: Add Remote and Push to New Repository
-        run: |          
+        run: |
+          git config --global url.https://GH_PAT_FOR_NEW_REPOS@github.com/.insteadOf https://github.com/
+          
           git remote add origin ${{ env.REPO_URL }}.git
           
           git push -u origin main
