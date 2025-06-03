@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace {{ cookiecutter.project_name }}.Api.Controllers;
 
+[Authorize]
+[Route("api/[controller]")]
 public class {{ cookiecutter.project_name }}Controller : ApiControllerBase
 {
     public {{ cookiecutter.project_name }}Controller(IMediator mediator) : base(mediator)
