@@ -97,10 +97,7 @@ jobs:
           echo "REPO_URL=$REPO_URL" >> $GITHUB_ENV
 
       - name: Add Remote and Push to New Repository
-        run: |
-          git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | \
-            xargs -L1 git config --unset-all
-          
+        run: |          
           git remote add origin ${{ env.REPO_URL }}.git
           
           git push -u origin main
